@@ -1,0 +1,35 @@
+{
+	"name": "set.prototype.issupersetof",
+	"version": "0.0.0",
+	"description": "An ESnext spec-compliant `Set.prototype.isSupersetOf` shim/polyfill/replacement that works as far down as ES3",
+	"main": "index.js",
+	"exports": {
+		".": "./index.js",
+		"./package.json": "./package.json"
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/es-shims/Set.prototype.isSupersetOf.git"
+	},
+	"keywords": [
+		"javascript",
+		"ecmascript",
+		"polyfill",
+		"shim",
+		"Set",
+		"Set.prototype.isSupersetOf",
+		"isSupersetOf",
+		"superset",
+		"es-shim API",
+		"es-shims"
+	],
+	"author": "Jordan Harband <ljharb@gmail.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/es-shims/Set.prototype.isSupersetOf/issues"
+	},
+	"homepage": "https://github.com/es-shims/Set.prototype.isSupersetOf#readme"
+}
