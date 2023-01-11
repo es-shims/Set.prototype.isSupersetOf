@@ -11,8 +11,10 @@
 				"GetIntrinsic",
 				"GetKeysIterator",
 				"GetSetRecord",
+				"IteratorClose",
 				"IteratorStep",
 				"IteratorValue",
+				"NormalCompletion",
 
 				// GetSetRecord
 				"IsCallable",

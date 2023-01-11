@@ -8,8 +8,10 @@ var $Set = require('es-set/polyfill')();
 
 var isNativeSet = typeof Set === 'function' && $Set === Set;
 
+var IteratorClose = require('es-abstract/2022/IteratorClose');
 var IteratorStep = require('es-abstract/2022/IteratorStep');
 var IteratorValue = require('es-abstract/2022/IteratorValue');
+var NormalCompletion = require('es-abstract/2022/NormalCompletion');
 
 var gOPD = require('es-abstract/helpers/getOwnPropertyDescriptor');
 
@@ -55,6 +57,7 @@ module.exports = function isSupersetOf(other) {
 			var nextValue = IteratorValue(next); // step 8.b.i
 			// if (!SetDataHas(O.[[SetData]], nextValue)) { // step 8.b.ii
 			if (!$setHas(O, nextValue)) {
+				IteratorClose(keysIter['[[Iterator]]'], NormalCompletion());
 				return false;
 			}
 		}
