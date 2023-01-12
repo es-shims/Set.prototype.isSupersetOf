@@ -20,17 +20,38 @@ var GetSetRecord = require('./aos/GetSetRecord');
 
 var isSet = require('is-set');
 
-var callBind = isNativeSet || require('call-bind'); // eslint-disable-line global-require
-var callBound = isNativeSet && require('call-bind/callBound'); // eslint-disable-line global-require
+var callBind = require('call-bind');
+var callBound = require('call-bind/callBound');
 
 var $setForEach = isNativeSet ? callBound('Set.prototype.forEach') : callBind($Set.prototype.forEach);
-var $setHas = isNativeSet ? callBound('Set.prototype.has') : callBind($Set.prototype.has);
-var $setSize = isNativeSet ? callBound('Set.prototype.size') : gOPD ? callBind(gOPD($Set.prototype, 'size').get) : function setSize(set) {
+
+var $nativeSetHas = callBound('Set.prototype.has', true);
+var $polyfillSetHas = callBind($Set.prototype.has);
+var $setHas = function (set, key) {
+	if ($nativeSetHas) {
+		try {
+			return $nativeSetHas(set, key);
+		} catch (e) { /**/ }
+	}
+	return $polyfillSetHas(set, key);
+};
+
+var $nativeSetSize = callBound('Set.prototype.size', true);
+var $polyfillSetSize = gOPD ? callBind(gOPD($Set.prototype, 'size').get) : null;
+var legacySetSize = function setSize(set) {
 	var count = 0;
 	$setForEach(set, function () {
 		count += 1;
 	});
 	return count;
+};
+var setSize = function (S) {
+	if ($nativeSetSize) {
+		try {
+			return $nativeSetSize(S);
+		} catch (e) { /**/ }
+	}
+	return $polyfillSetSize ? $polyfillSetSize(S) : legacySetSize(S);
 };
 
 module.exports = function isSupersetOf(other) {
@@ -43,7 +64,7 @@ module.exports = function isSupersetOf(other) {
 
 	var otherRec = GetSetRecord(other); // step 3
 
-	var thisSize = $setSize(O); // step 4
+	var thisSize = setSize(O); // step 4
 
 	if (thisSize < otherRec['[[Size]]']) {
 		return false; // step 5
