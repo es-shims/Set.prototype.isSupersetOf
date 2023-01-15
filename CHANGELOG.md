@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.0.2](https://github.com/es-shims/Set.prototype.isSupersetOf/compare/v1.0.1...v1.0.2) - 2023-01-15
+
+### Commits
+
+- [Fix] properly handle StopIteration envs, like FF 42 [`c989d58`](https://github.com/es-shims/Set.prototype.isSupersetOf/commit/c989d58ca65f8e1e6d1420549e5ca77e2a5d2529)
+- [Dev Deps] update `object-inspect` [`bfc1d3e`](https://github.com/es-shims/Set.prototype.isSupersetOf/commit/bfc1d3e97aa5c1badb458e3f71295ade5d6e59bc)
+
 ## [v1.0.1](https://github.com/es-shims/Set.prototype.isSupersetOf/compare/v1.0.0...v1.0.1) - 2023-01-11
 
 ### Commits
