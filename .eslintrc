@@ -9,7 +9,7 @@
 			"capIsNewExceptions": [
 				"RequireObjectCoercible",
 				"GetIntrinsic",
-				"GetKeysIterator",
+				"GetIteratorFromMethod",
 				"GetSetRecord",
 				"IteratorClose",
 				"IteratorStep",
@@ -22,7 +22,6 @@
 				"Get",
 				"ToNumber",
 				"Type",
-				// GetKeysIterator
 				"Type",
 				"Call",
 				"Get",

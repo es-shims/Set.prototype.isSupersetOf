@@ -6,7 +6,7 @@ var $TypeError = GetIntrinsic('%TypeError%');
 
 var $Set = require('es-set/polyfill')();
 
-var GetKeysIterator = require('./aos/GetKeysIterator');
+var GetIteratorFromMethod = require('es-abstract/2023/GetIteratorFromMethod');
 var GetSetRecord = require('./aos/GetSetRecord');
 var IteratorClose = require('es-abstract/2023/IteratorClose');
 var IteratorStep = require('es-abstract/2023/IteratorStep');
@@ -35,15 +35,15 @@ module.exports = function isSupersetOf(other) {
 		return false; // step 5
 	}
 
-	var keysIter = GetKeysIterator(otherRec); // step 6
+	var keysIter = GetIteratorFromMethod(otherRec['[[Set]]'], otherRec['[[Keys]]']); // step 6
 	var next = true; // step 7
 	while (next) { // step 8
-		next = IteratorStep(keysIter['[[Iterator]]']); // step 8.a
+		next = IteratorStep(keysIter); // step 8.a
 		if (next) { // step 8.b
 			var nextValue = IteratorValue(next); // step 8.b.i
 			// if (!SetDataHas(O.[[SetData]], nextValue)) { // step 8.b.ii
 			if (!$setHas(O, nextValue)) {
-				IteratorClose(keysIter['[[Iterator]]'], NormalCompletion());
+				IteratorClose(keysIter, NormalCompletion());
 				return false;
 			}
 		}
