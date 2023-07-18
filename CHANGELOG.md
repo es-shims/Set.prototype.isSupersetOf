@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.1.0](https://github.com/es-shims/Set.prototype.isSupersetOf/compare/v1.0.2...v1.1.0) - 2023-07-18
+
+### Commits
+
+- [patch] remove GetKeysIterator and its callable check [`9e0f82f`](https://github.com/es-shims/Set.prototype.isSupersetOf/commit/9e0f82f7d643e89f3bc3646de5d4780891193e90)
+- [Deps] update `define-properties`, `es-abstract`, `get-intrinsic` [`4f2e788`](https://github.com/es-shims/Set.prototype.isSupersetOf/commit/4f2e78898c482aadbc4322bd5f5cd36d57a34461)
+- [patch] throw on negative set sizes [`932548f`](https://github.com/es-shims/Set.prototype.isSupersetOf/commit/932548f45e08875eada66ce0f43ebece84010c97)
+- [Dev Deps] update `@es-shims/api`, `@ljharb/eslint-config`, `aud`, `es6-shim`, `tape` [`ac8c1b5`](https://github.com/es-shims/Set.prototype.isSupersetOf/commit/ac8c1b54a069b31332cfa58382986e8074ed0231)
+
 ## [v1.0.2](https://github.com/es-shims/Set.prototype.isSupersetOf/compare/v1.0.1...v1.0.2) - 2023-01-15
 
 ### Commits
