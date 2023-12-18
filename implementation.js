@@ -43,8 +43,8 @@ module.exports = function isSupersetOf(other) {
 			var nextValue = IteratorValue(next); // step 8.b.i
 			// if (!SetDataHas(O.[[SetData]], nextValue)) { // step 8.b.ii
 			if (!$setHas(O, nextValue)) {
-				IteratorClose(keysIter, NormalCompletion());
-				return false;
+				IteratorClose(keysIter, NormalCompletion()); // step 8.b.ii.1
+				return false; // step 8.b.ii.2
 			}
 		}
 	}
