@@ -314,5 +314,23 @@ module.exports = function (isSupersetOf, t) {
 		st.end();
 	});
 
+	t.test('test262: test/built-ins/Set/prototype/isSupersetOf/converts-negative-zero', function (st) {
+		var setlikeWithMinusZero = {
+			size: 1,
+			has: function () {
+				throw new EvalError('Set.prototype.isSupersetOf should not call its argument’s has method when this.size > arg.size');
+			},
+			keys: function () {
+				return getIterator([-0]);
+			}
+		};
+
+		var s1 = new $Set([+0, 1]);
+
+		st.equal(isSupersetOf(s1, setlikeWithMinusZero), true);
+
+		st.end();
+	});
+
 	return t.comment('tests completed');
 };
