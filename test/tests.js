@@ -5,6 +5,7 @@ var forEach = require('for-each');
 var v = require('es-value-fixtures');
 var debug = require('object-inspect');
 var $Map = require('es-map/polyfill')();
+var getIterator = require('es-get-iterator');
 
 module.exports = function (isSupersetOf, t) {
 	t.test('throws on non-set receivers', function (st) {
@@ -119,21 +120,7 @@ module.exports = function (isSupersetOf, t) {
 				throw new EvalError('Set.prototype.isSupersetOf should not call its argument’s has method');
 			},
 			keys: function () {
-				var result = {
-					done: false,
-					value: 1
-				};
-				return {
-					next: function () {
-						try {
-							return result;
-						} finally {
-							result = {
-								done: true
-							};
-						}
-					}
-				};
+				return getIterator([1]);
 			}
 		};
 
@@ -196,7 +183,7 @@ module.exports = function (isSupersetOf, t) {
 			size: 2,
 			has: undefined,
 			keys: function () {
-				return [2, 3];
+				return getIterator([2, 3]);
 			}
 		};
 		st['throws'](
@@ -240,7 +227,7 @@ module.exports = function (isSupersetOf, t) {
 
 	t.test('test262: test/built-ins/Set/prototype/isSupersetOf/set-like-array', function (st) {
 		var s1 = new $Set([1, 2]);
-		var s2 = [5, 6];
+		var s2 = [1];
 		s2.size = 3;
 		s2.has = function (x) {
 			if (x === 1) { return true; }
@@ -297,7 +284,7 @@ module.exports = function (isSupersetOf, t) {
 			size: undefined,
 			has: function () {},
 			keys: function () {
-				return [2, 3];
+				return getIterator([2, 3]);
 			}
 		};
 
