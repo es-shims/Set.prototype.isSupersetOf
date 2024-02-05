@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.1.1](https://github.com/es-shims/Set.prototype.isSupersetOf/compare/v1.1.0...v1.1.1) - 2024-02-04
+
+### Commits
+
+- [Tests] increase coverage [`26547ae`](https://github.com/es-shims/Set.prototype.isSupersetOf/commit/26547ae9c5a0c160ad1c0636994cb35b5f062b09)
+- [Tests] ensure test mocks return iterators [`d1a89d3`](https://github.com/es-shims/Set.prototype.isSupersetOf/commit/d1a89d343a2355f53642211a0f0b231eb9922345)
+- [Tests] increase coverage [`3182aa6`](https://github.com/es-shims/Set.prototype.isSupersetOf/commit/3182aa6fef7b6b33706f039c8222a1cc79cafc7a)
+- [Refactor] use `es-errors`, so things that only need those do not need `get-intrinsic` [`1367361`](https://github.com/es-shims/Set.prototype.isSupersetOf/commit/1367361bdb5190a33993516f9185446d3d54053e)
+- [Deps] update `call-bind`, `define-properties`, `es-abstract`, `es-set`, `get-intrinsic` [`0b2b950`](https://github.com/es-shims/Set.prototype.isSupersetOf/commit/0b2b950e2cfe9714f193113bad2a24af47c85b2b)
+- [Dev Deps] update `aud`, `npmignore`, `object-inspect`, `tape` [`dd80031`](https://github.com/es-shims/Set.prototype.isSupersetOf/commit/dd800318765bbe340bd3763143e0afa131e28444)
+- [Dev Deps] update `tape` [`887b424`](https://github.com/es-shims/Set.prototype.isSupersetOf/commit/887b4242ebd765dd441124556b904602dd53f2cc)
+
 ## [v1.1.0](https://github.com/es-shims/Set.prototype.isSupersetOf/compare/v1.0.2...v1.1.0) - 2023-07-18
 
 ### Commits
