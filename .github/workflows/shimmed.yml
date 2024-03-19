@@ -17,7 +17,7 @@ jobs:
           - '0.8'
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: ljharb/actions/node/install@main
         name: 'nvm install ${{ matrix.node-version }} && npm install'
         with:
@@ -29,4 +29,4 @@ jobs:
     needs: [majors]
     runs-on: ubuntu-latest
     steps:
-      - run: 'echo tests completed'
+      - run: true
