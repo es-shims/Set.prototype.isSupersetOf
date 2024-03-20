@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.1.2](https://github.com/es-shims/Set.prototype.isSupersetOf/compare/v1.1.1...v1.1.2) - 2024-03-19
+
+### Commits
+
+- [meta] remove useless ESM [`b8ca68c`](https://github.com/es-shims/Set.prototype.isSupersetOf/commit/b8ca68c52d1de1e2d7b5e9a7bfa73d702015bd61)
+- [Deps] update `call-bind`, `es-abstract`, `es-errors`, `is-set` [`ee159df`](https://github.com/es-shims/Set.prototype.isSupersetOf/commit/ee159df178e24d9ee22a702961f2a9614e4c2494)
+- [actions] remove redundant finisher [`307c80f`](https://github.com/es-shims/Set.prototype.isSupersetOf/commit/307c80f606dc431bb1d13e633bcede5c0484a073)
+- [Dev Deps] update `tape` [`c562c44`](https://github.com/es-shims/Set.prototype.isSupersetOf/commit/c562c4459d38a7964ad16fb94c8d7f0ed2bc7e92)
+
 ## [v1.1.1](https://github.com/es-shims/Set.prototype.isSupersetOf/compare/v1.1.0...v1.1.1) - 2024-02-04
 
 ### Commits
