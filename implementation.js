@@ -7,15 +7,14 @@ var $Set = require('es-set/polyfill')();
 var GetIteratorFromMethod = require('es-abstract/2024/GetIteratorFromMethod');
 var GetSetRecord = require('./aos/GetSetRecord');
 var IteratorClose = require('es-abstract/2024/IteratorClose');
-var IteratorStep = require('es-abstract/2024/IteratorStep');
-var IteratorValue = require('es-abstract/2024/IteratorValue');
+var IteratorStepValue = require('es-abstract/2024/IteratorStepValue');
 var NormalCompletion = require('es-abstract/2024/NormalCompletion');
 
 var isSet = require('is-set');
 
 var tools = require('es-set/tools');
 var $setHas = tools.has;
-var setSize = tools.size;
+var $setSize = tools.size;
 
 module.exports = function isSupersetOf(other) {
 	var O = this; // step 1
@@ -27,7 +26,7 @@ module.exports = function isSupersetOf(other) {
 
 	var otherRec = GetSetRecord(other); // step 3
 
-	var thisSize = setSize(O); // step 4
+	var thisSize = $setSize(O); // SetDataSize(O.[[SetData]]) // step 4
 
 	if (thisSize < otherRec['[[Size]]']) {
 		return false; // step 5
@@ -35,13 +34,12 @@ module.exports = function isSupersetOf(other) {
 
 	var keysIter = GetIteratorFromMethod(otherRec['[[Set]]'], otherRec['[[Keys]]']); // step 6
 	var next = true; // step 7
-	while (next) { // step 8
-		next = IteratorStep(keysIter); // step 8.a
-		if (next) { // step 8.b
-			var nextValue = IteratorValue(next); // step 8.b.i
-			// if (!SetDataHas(O.[[SetData]], nextValue)) { // step 8.b.ii
-			if (!$setHas(O, nextValue)) {
-				IteratorClose(keysIter, NormalCompletion()); // step 8.b.ii.1
+	while (!keysIter['[[Done]]']) { // step 8
+		next = IteratorStepValue(keysIter); // step 8.a
+		if (!keysIter['[[Done]]']) { // step 8.b
+			// if (!SetDataHas(O.[[SetData]], next)) { // step 8.b.i
+			if (!$setHas(O, next)) {
+				IteratorClose(keysIter, NormalCompletion()); // step 8.b.i.1
 				return false; // step 8.b.ii.2
 			}
 		}

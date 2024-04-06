@@ -11,8 +11,7 @@
 				"GetIteratorFromMethod",
 				"GetSetRecord",
 				"IteratorClose",
-				"IteratorStep",
-				"IteratorValue",
+				"IteratorStepValue",
 				"NormalCompletion",
 
 				// GetSetRecord
