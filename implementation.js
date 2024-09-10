@@ -32,7 +32,7 @@ module.exports = function isSupersetOf(other) {
 		return false; // step 5
 	}
 
-	var keysIter = GetIteratorFromMethod(otherRec['[[Set]]'], otherRec['[[Keys]]']); // step 6
+	var keysIter = GetIteratorFromMethod(otherRec['[[SetObject]]'], otherRec['[[Keys]]']); // step 6
 	var next = true; // step 7
 	while (!keysIter['[[Done]]']) { // step 8
 		next = IteratorStepValue(keysIter); // step 8.a
